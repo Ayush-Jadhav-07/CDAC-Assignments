@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+#include<string.h>
+int main()
+{
+    int totalchar=0;
+    char name[20];
+    cout<<"enter name";
+    cin>>name;
+    const char *string1=name;
+    const char *temp = string1;
+
+    while(*temp!='\0'){
+        totalchar = totalchar + 1;
+        temp++;
+
+    }
+    for(int i = totalchar - 1;i>=0;i--){
+        cout<<" "<< *(string1 + i);
+    }
+    return 0;
+}
