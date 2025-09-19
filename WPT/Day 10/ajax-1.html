@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax to Jquery</title>
+</head>
+
+<body>
+    <h1>Load Example</h1>
+    <div id="content"></div>
+    <button id="loadBtn">Load Content</button>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js">
+
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#loadBtn").click(function () {
+                $("#content").load("data.txt", function (response, status, abc) {
+                    if (status === "success") {
+                        console.log("Content loaded successfully!");
+                    } else if (status === "error") {
+                        console.log("Error: " + abc.status + " " + abc.statusText);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
