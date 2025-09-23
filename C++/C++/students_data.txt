@@ -1,0 +1,14 @@
+Roll Number of Student : 1
+Name of the Student : Ayush Ankush Jadhav
+Marks for Each Subjects : English- 75, Maths- 95, Science- 85
+Total Percentage : 85
+----------------------------------------
+Roll Number of Student : 2
+Name of the Student : Chinmay Rathord
+Marks for Each Subjects : English- 85, Maths- 85, Science- 85
+Total Percentage : 85
+----------------------------------------Roll Number of Student : 3
+Name of the Student : Vinayak Jadhav
+Marks for Each Subjects : English- 105, Maths- 110, Science- 107
+Total Percentage : 107.333
+----------------------------------------
