@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation</title>
+    <style>
+        .erroMessage{
+            visibility: hidden;
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+
+    <script>
+        function validation(){
+            let Stud_Name = document.getElementById("studName").value;
+            let Age = parseInt(document.getElementById("studAge").value);
+
+            if(Stud_Name.trim().length === 0){
+                document.getElementsByClassName("erroMessage")[0].style.visibility='visible';
+            }
+            else{
+                document.getElementsByClassName("erroMessage")[0].style.visibility='hidden';
+            }
+
+
+            if(isNaN(Age) || Age<10){
+                document.getElementsByClassName("erroMessage")[1].style.visibility='visible';
+            }
+            else{
+                document.getElementsByClassName("erroMessage")[1].style.visibility='hidden';
+            }
+            return !(Stud_Name.trim().length === 0 || isNaN(Age) || Age < 10);
+        }
+    </script>
+</head>
+<body>
+    <form action="">
+    <label for="studName">Student Name : </label>
+    <input type="text" name="" id="studName" >
+    <p class="erroMessage">Name must be Given !</p>
+    <label for="studAge">Student Age : </label>
+    <input type="text" name="" id="studAge" >
+    <p class="erroMessage">Name must be Given !</p>
+    <button onclick="return validation()">Submit</button>
+    </form>
+</body>
+</html>

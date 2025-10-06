@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator with Browser Callbacks</title>
+</head>
+<body>
+
+<h2>Calculator with Browser Callback Functions</h2>
+
+<label>Enter First Number: </label>
+<input type="number" id="num1"><br><br>
+
+<label>Enter Second Number: </label>
+<input type="number" id="num2"><br><br>
+
+<label>Select Operation: </label>
+<select id="operation">
+    <option value="addition">Addition</option>
+    <option value="subtraction">Subtraction</option>
+    <option value="multiply">Multiply</option>
+    <option value="division">Division</option>
+</select><br><br>
+
+<button onclick="performCalculation()">Calculate</button>
+<button onclick="startInterval()">Start Interval</button>
+<button onclick="stopInterval()">Stop Interval</button>
+
+<h3>Result: <span id="result"></span></h3>
+<h3>Interval Output: <span id="intervalResult"></span></h3>
+
+<script>
+// --- 1. Display function ---
+function display(result) {
+    document.getElementById("result").innerText = result;
+}
+
+// --- 2. Basic Calculator Operations with Callback ---
+function addition(n1, n2, callback) { callback(n1 + n2); }
+function subtraction(n1, n2, callback) { callback(n1 - n2); }
+function multiply(n1, n2, callback) { callback(n1 * n2); }
+function division(n1, n2, callback) {
+    if(n2 === 0) callback("Error! Division by zero");
+    else callback(n1 / n2);
+}
+
+// --- 3. Calculate function ---
+function calculate(n1, n2, operationCallback) {
+    operationCallback(n1, n2, display);
+}
+
+// --- 4. Perform Calculation based on User Input ---
+function performCalculation() {
+    const n1 = parseFloat(document.getElementById("num1").value);
+    const n2 = parseFloat(document.getElementById("num2").value);
+    const op = document.getElementById("operation").value;
+
+    if(isNaN(n1) || isNaN(n2)) {
+        alert("Please enter valid numbers");
+        return;
+    }
+
+    switch(op) {
+        case "addition": calculate(n1, n2, addition); break;
+        case "subtraction": calculate(n1, n2, subtraction); break;
+        case "multiply": calculate(n1, n2, multiply); break;
+        case "division": calculate(n1, n2, division); break;
+        default: alert("Invalid Operation");
+    }
+
+    // --- 5. Example of setTimeout ---
+    // Display a message after 2 seconds
+    setTimeout(() => {
+        console.log("Calculation Completed! (setTimeout callback)");
+    }, 2000);
+}
+
+// --- 6. Example of setInterval and clearInterval ---
+let intervalId; // store interval ID globally
+
+function startInterval() {
+    let count = 0;
+    intervalId = setInterval(() => {
+        count++;
+        document.getElementById("intervalResult").innerText = `Interval Count: ${count}`;
+        console.log("Interval running... " + count);
+
+        if(count >= 10) {
+            clearInterval(intervalId); // stop interval after 10 iterations
+            console.log("Interval stopped automatically after 10 counts");
+        }
+    }, 1000); // every 1 second
+}
+
+function stopInterval() {
+    clearInterval(intervalId);
+    document.getElementById("intervalResult").innerText = "Interval Stopped!";
+    console.log("Interval manually stopped");
+}
+</script>
+
+</body>
+</html>

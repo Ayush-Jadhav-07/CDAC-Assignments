@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Username Generator</title>
+<style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    input { margin: 5px 0; }
+    #username { font-weight: bold; color: green; }
+</style>
+</head>
+<body>
+
+<h2>Create Username Dynamically</h2>
+
+<label>First Name:</label>
+<input type="text" id="fname"><br>
+
+<label>Last Name:</label>
+<input type="text" id="lname"><br>
+
+<label>Age:</label>
+<input type="number" id="age"><br>
+
+<button onclick="generateUsername()">Generate Username</button>
+
+<p>Generated Username: <span id="username"></span></p>
+
+<script>
+// Function to generate username
+function generateUsername() {
+    // Get input values
+    let first = document.getElementById("fname").value.trim();
+    let last = document.getElementById("lname").value.trim();
+    let age = document.getElementById("age").value.trim();
+
+    // Validate inputs
+    if(first.length < 2 || last.length < 2 || age === "") {
+        alert("Please enter valid first name, last name (at least 2 chars) and age");
+        return;
+    }
+
+    // Take first 2 letters of first name
+    let firstPart = first.substring(0, 2).toLowerCase();
+
+    // Take last 2 letters of last name
+    let lastPart = last.substring(last.length - 2).toLowerCase();
+
+    // Combine with age
+    let username = firstPart + lastPart + age;
+
+    // Display username
+    document.getElementById("username").innerText = username;
+}
+</script>
+
+</body>
+</html>

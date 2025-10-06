@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+</head>
+    <script>
+        function handler(){
+            let num = parseInt(document.getElementById("input").value);
+
+            if (num<0 || isNaN(num)){
+                alert("Enter Positive Number!")
+            }
+            else{
+            let output = "<table border = 2>"
+                for(let i = 1; i<=10; i++){
+                   output += `<tr> <td> ${num} * ${i} =</td>  <td>${num*i} </td> </tr>`
+                    // output= output.concat(out);
+                }
+                output=output+"</table>"
+                document.getElementById("display").innerHTML = output;
+            }
+            document.getElementById("input").value = "";
+        }
+
+
+    </script>
+<body>
+    <label for="table">Enter number - </label>
+    <input type="text" name="input" id="input">
+    <br>
+    <button onclick="handler()">Show Table</button>
+
+    <div id="display">
+
+    </div>
+
+</body>
+</html>

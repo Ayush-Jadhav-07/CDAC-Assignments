@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employee Data</title>
+<style>
+    .errorMessage {
+        color: red;
+        font-size: 14px;
+        visibility: hidden;
+    }
+    table {
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    th, td {
+        border: 1px solid #333;
+        padding: 5px 10px;
+    }
+</style>
+</head>
+<body>
+<h1>Employee Data</h1>
+
+<form id="employeeForm" onsubmit="return handler()">
+    <label>First Name :</label>
+    <input type="text" id="fname">
+    <p class="errorMessage" id="fnameError">Please Enter First Name!</p>
+
+    <label>Last Name :</label>
+    <input type="text" id="lname">
+    <p class="errorMessage" id="lnameError">Please Enter Last Name!</p>
+
+    <label>Email :</label>
+    <input type="email" id="email">
+    <p class="errorMessage" id="emailError">Please Enter Email!</p>
+
+    <label>Date of Birth :</label>
+    <input type="date" id="dob">
+    <p class="errorMessage" id="dobError">Please Enter Date of Birth!</p>
+
+    <button type="submit">Submit</button>
+</form>
+
+<div id="displayData"></div>
+
+<script>
+function handler() {
+    // Get values
+    let first = document.getElementById("fname").value.trim();
+    let last = document.getElementById("lname").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let dob = document.getElementById("dob").value.trim();
+
+    // Track validity
+    let valid = true;
+
+    // Validate First Name
+    if(first === "") {
+        document.getElementById("fnameError").style.visibility = "visible";
+        valid = false;
+    } else {
+        document.getElementById("fnameError").style.visibility = "hidden";
+    }
+
+    // Validate Last Name
+    if(last === "") {
+        document.getElementById("lnameError").style.visibility = "visible";
+        valid = false;
+    } else {
+        document.getElementById("lnameError").style.visibility = "hidden";
+    }
+
+    // Validate Email
+    if(email === "") {
+        document.getElementById("emailError").style.visibility = "visible";
+        valid = false;
+    } else {
+        document.getElementById("emailError").style.visibility = "hidden";
+    }
+
+    // Validate DOB
+    if(dob === "") {
+        document.getElementById("dobError").style.visibility = "visible";
+        valid = false;
+    } else {
+        document.getElementById("dobError").style.visibility = "hidden";
+    }
+
+    // Stop if not valid
+    if(!valid) return false;
+
+    // Display table
+    let output = `<table>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Date Of Birth</th>
+                    </tr>
+                    <tr>
+                        <td>${first}</td>
+                        <td>${last}</td>
+                        <td>${email}</td>
+                        <td>${dob}</td>
+                    </tr>
+                  </table>`;
+
+    document.getElementById("displayData").innerHTML = output;
+
+    // Clear form
+    document.getElementById("employeeForm").reset();
+
+    return false; // Prevent form from submitting
+}
+</script>
+</body>
+</html>

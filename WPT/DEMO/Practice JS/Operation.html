@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator with Callback</title>
+</head>
+<body>
+
+<h2>Simple Calculator Using Callback Functions</h2>
+
+<!-- Input fields -->
+<label>Enter First Number: </label>
+<input type="number" id="num1"><br><br>
+
+<label>Enter Second Number: </label>
+<input type="number" id="num2"><br><br>
+
+<label>Select Operation: </label>
+<select id="operation">
+    <option value="addition">Addition</option>
+    <option value="subtraction">Subtraction</option>
+    <option value="multiply">Multiply</option>
+    <option value="division">Division</option>
+</select><br><br>
+
+<button onclick="performCalculation()">Calculate</button>
+
+<h3>Result: <span id="result"></span></h3>
+
+<script>
+// 1. Display function - displays the result in the page
+function display(result) {
+    document.getElementById("result").innerText = result;
+}
+
+// 2. Addition function - calculates sum and calls callback
+function addition(n1, n2, callback) {
+    let sum = n1 + n2;
+    callback(sum); // Pass result to display function
+}
+
+// 3. Subtraction function - calculates difference and calls callback
+function subtraction(n1, n2, callback) {
+    let diff = n1 - n2;
+    callback(diff);
+}
+
+// 4. Multiply function - calculates product and calls callback
+function multiply(n1, n2, callback) {
+    let product = n1 * n2;
+    callback(product);
+}
+
+// 5. Division function - calculates quotient and calls callback
+function division(n1, n2, callback) {
+    if(n2 === 0) {
+        callback("Error! Division by zero");
+    } else {
+        let quotient = n1 / n2;
+        callback(quotient);
+    }
+}
+
+// 6. Calculate function - decides which operation to perform based on choice
+function calculate(n1, n2, operationCallback) {
+    // Call the operation function (addition, subtraction, etc.)
+    operationCallback(n1, n2, display);
+}
+
+// Function to handle user input and call appropriate operation
+function performCalculation() {
+    let n1 = parseFloat(document.getElementById("num1").value);
+    let n2 = parseFloat(document.getElementById("num2").value);
+    let op = document.getElementById("operation").value;
+
+    // Input validation
+    if(isNaN(n1) || isNaN(n2)) {
+        alert("Please enter valid numbers");
+        return;
+    }
+
+    // Decide which operation to call
+    switch(op) {
+        case "addition":
+            calculate(n1, n2, addition);
+            break;
+        case "subtraction":
+            calculate(n1, n2, subtraction);
+            break;
+        case "multiply":
+            calculate(n1, n2, multiply);
+            break;
+        case "division":
+            calculate(n1, n2, division);
+            break;
+        default:
+            alert("Invalid Operation");
+    }
+}
+</script>
+
+</body>
+</html>
