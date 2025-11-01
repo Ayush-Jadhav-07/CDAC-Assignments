@@ -1,0 +1,1011 @@
+Microsoft Windows [Version 10.0.19045.6456]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\IET>mysql --host=192.168.10.117 --port=3306 --user=dac14 --password=welcome
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 62
+Server version: 8.0.44 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| dac14              |
+| information_schema |
+| performance_schema |
++--------------------+
+3 rows in set (0.00 sec)
+
+mysql> use dac14;
+Database changed
+mysql> show tables;
++---------------------+
+| Tables_in_dac14     |
++---------------------+
+| a                   |
+| activity            |
+| agent               |
+| airline_seats       |
+| andor               |
+| atm                 |
+| b                   |
+| bankloan            |
+| batch_schedule      |
+| betweensalary       |
+| bitwise             |
+| blanktablea         |
+| blanktableb         |
+| blog                |
+| bonus               |
+| books               |
+| brands              |
+| bus_stops           |
+| cafe                |
+| candidate           |
+| cardpayments        |
+| cashpayments        |
+| categories          |
+| category            |
+| city                |
+| classandsubjects    |
+| client              |
+| cnumbers            |
+| coalesce            |
+| comments            |
+| company             |
+| countnulls          |
+| countnumbers        |
+| cricketwinnerteam   |
+| customer            |
+| customers           |
+| demodept1           |
+| demodept2           |
+| dept                |
+| dept1               |
+| dhl                 |
+| docs                |
+| doctor              |
+| doctorvisits        |
+| dummy               |
+| duplicate           |
+| emp                 |
+| emp1                |
+| emp2                |
+| emp_attendance      |
+| emp_cards           |
+| emp_phone           |
+| empj                |
+| envelope            |
+| facebook            |
+| fedex               |
+| food                |
+| food_category_tags  |
+| food_items          |
+| fromstoreorders     |
+| fruits              |
+| fullname            |
+| hall_ticket         |
+| hobby               |
+| ipl                 |
+| item                |
+| job_list            |
+| key_parts           |
+| labtestlist         |
+| leading_zeroes      |
+| leadtable           |
+| licence             |
+| linkedin            |
+| location            |
+| managers            |
+| mass_table          |
+| medicinelist        |
+| menucard            |
+| missingnumbers      |
+| nearest             |
+| new                 |
+| newbooks            |
+| null1               |
+| null2               |
+| nullif              |
+| numberstring        |
+| onlineorders        |
+| ord                 |
+| order1              |
+| order_items         |
+| orderdetails        |
+| orders              |
+| overlapping_dates   |
+| overtime            |
+| patient             |
+| phonecall           |
+| pivot_table         |
+| plumber             |
+| plumber_service_map |
+| points              |
+| population          |
+| price               |
+| product             |
+| product_sales       |
+| products            |
+| pune_metro_stations |
+| quarterly_revenue   |
+| r                   |
+| r1                  |
+| r2                  |
+| races               |
+| regexpr             |
+| repeatingnumbers    |
+| replacedept         |
+| reservations        |
+| revenue             |
+| rockets             |
+| room_assigned       |
+| room_staff          |
+| rooms               |
+| runners             |
+| runningserver       |
+| sales               |
+| sales1              |
+| sales_channel       |
+| salespeople         |
+| salesperson         |
+| salgrade            |
+| server              |
+| service             |
+| seta                |
+| setb                |
+| shop                |
+| softdrink           |
+| sort                |
+| sourcecity          |
+| sourcenames         |
+| stadium             |
+| stages              |
+| states              |
+| station             |
+| status              |
+| stocks              |
+| stringnumber        |
+| student             |
+| swapcity            |
+| tablea              |
+| tableaa             |
+| tableb              |
+| tablebb             |
+| targetcity          |
+| targetnames         |
+| tasks               |
+| teams               |
+| temp1               |
+| trainers            |
+| trains              |
+| traintimetable      |
+| transactions        |
+| unpivot_table       |
+| ups                 |
+| vote_response       |
+| votes               |
+| warehouse           |
+| x                   |
+| year_of_service     |
+| yearly_revenue      |
+| years               |
+| z                   |
++---------------------+
+169 rows in set (0.00 sec)
+
+mysql> show engines;
++--------------------+---------+----------------------------------------------------------------+--------------+------+------------+
+| Engine             | Support | Comment                                                        | Transactions | XA   | Savepoints |
++--------------------+---------+----------------------------------------------------------------+--------------+------+------------+
+| MEMORY             | YES     | Hash based, stored in memory, useful for temporary tables      | NO           | NO   | NO         |
+| MRG_MYISAM         | YES     | Collection of identical MyISAM tables                          | NO           | NO   | NO         |
+| CSV                | YES     | CSV storage engine                                             | NO           | NO   | NO         |
+| FEDERATED          | NO      | Federated MySQL storage engine                                 | NULL         | NULL | NULL       |
+| PERFORMANCE_SCHEMA | YES     | Performance Schema                                             | NO           | NO   | NO         |
+| MyISAM             | YES     | MyISAM storage engine                                          | NO           | NO   | NO         |
+| InnoDB             | DEFAULT | Supports transactions, row-level locking, and foreign keys     | YES          | YES  | YES        |
+| ndbinfo            | NO      | MySQL Cluster system information storage engine                | NULL         | NULL | NULL       |
+| BLACKHOLE          | YES     | /dev/null storage engine (anything you write to it disappears) | NO           | NO   | NO         |
+| ARCHIVE            | YES     | Archive storage engine                                         | NO           | NO   | NO         |
+| ndbcluster         | NO      | Clustered, fault-tolerant tables                               | NULL         | NULL | NULL       |
++--------------------+---------+----------------------------------------------------------------+--------------+------+------------+
+11 rows in set (0.00 sec)
+
+mysql> create table ash(id int primary key auto_increment, name varchar(25));
+Query OK, 0 rows affected (1.48 sec)
+
+mysql> desc ash;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int         | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(25) | YES  |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+2 rows in set (0.00 sec)
+
+mysql> insert into ash values(default, 'Ayush');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from ash;
++----+-------+
+| id | name  |
++----+-------+
+|  1 | Ayush |
++----+-------+
+1 row in set (0.00 sec)
+
+mysql> show table ash;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ash' at line 1
+mysql> insert into ash values (default, 'Chandu'), (100, 'Chinmay'), (default, 'Amol');
+Query OK, 3 rows affected (0.12 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> insert into ash values ((default, 'Chandu'), (100, 'Chinmay'), (default, 'Amol'));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', 'Chandu'), (100, 'Chinmay'), (default, 'Amol'))' at line 1
+mysql> select * from ash;
++-----+---------+
+| id  | name    |
++-----+---------+
+|   1 | Ayush   |
+|   2 | Chandu  |
+| 100 | Chinmay |
+| 101 | Amol    |
++-----+---------+
+4 rows in set (0.00 sec)
+
+mysql> select name from ash;
++---------+
+| name    |
++---------+
+| Ayush   |
+| Chandu  |
+| Chinmay |
+| Amol    |
++---------+
+4 rows in set (0.00 sec)
+
+mysql> !r
+    ->
+    -> ^C
+mysql> /r
+    -> ^C
+mysql> /r;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '/r' at line 1
+mysql> create table ash_data(Order_ID int primary key auto_increment, Order_Date datetime default curdate(), Product_Name varchar(52) not null, Rate float(5,2), Qty int, Total_Price float(10,2) generated always as (Rate*Qty), (Rate*Qty) Final_Price );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'curdate(), Product_Name varchar(52) not null, Rate float(5,2), Qty int, Total_Pr' at line 1
+mysql> create table ash_data(Order_ID int primary key auto_increment, Order_Date datetime default now(), Product_Name varchar(52) not null, Rate float(5,2), Qty int, Total_Price float(10,2) generated always as (Rate*Qty), (Rate*Qty) Final_Price );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(Rate*Qty) Final_Price )' at line 1
+mysql> create table ash_data(Order_ID int primary key auto_increment, Order_Date datetime default now(), Product_Name varchar(52) not null, Rate float(5,2), Qty int, Total_Price float(10,2) generated always as (Rate*Qty));
+Query OK, 0 rows affected, 2 warnings (0.72 sec)
+
+mysql> show warnings;
++---------+------+------------------------------------------------------------------------------------------------------------------+
+| Level   | Code | Message                                                                                                          |
++---------+------+------------------------------------------------------------------------------------------------------------------+
+| Warning | 1681 | Specifying number of digits for floating point data types is deprecated and will be removed in a future release. |
+| Warning | 1681 | Specifying number of digits for floating point data types is deprecated and will be removed in a future release. |
++---------+------+------------------------------------------------------------------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> insert into ash_data values (default, default, 'Pencil', 5, 10, default);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select * from ash_data;
++----------+---------------------+--------------+------+------+-------------+
+| Order_ID | Order_Date          | Product_Name | Rate | Qty  | Total_Price |
++----------+---------------------+--------------+------+------+-------------+
+|        1 | 2025-11-01 17:11:00 | Pencil       | 5.00 |   10 |       50.00 |
++----------+---------------------+--------------+------+------+-------------+
+1 row in set (0.00 sec)
+
+mysql> insert into (Product_Name, Rate,Qty) values ('Pen', 20, 5);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(Product_Name, Rate,Qty) values ('Pen', 20, 5)' at line 1
+mysql> insert into Product_Name, Rate,Qty values ('Pen', 20, 5);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', Rate,Qty values ('Pen', 20, 5)' at line 1
+mysql> insert into ash_data(Product_Name, Rate,Qty) values ('Pen', 20, 5);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into ash_data Product_Name, Rate,Qty values 'Eraser', 3, 55;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Product_Name, Rate,Qty values 'Eraser', 3, 55' at line 1
+mysql> insert into ash_data Product_Name, Rate,Qty values ('Eraser', 3, 55);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Product_Name, Rate,Qty values ('Eraser', 3, 55)' at line 1
+mysql> insert into ash_data(Product_Name, Rate,Qty) values ('Eraser', 3, 55);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select * from ash_data;
++----------+---------------------+--------------+-------+------+-------------+
+| Order_ID | Order_Date          | Product_Name | Rate  | Qty  | Total_Price |
++----------+---------------------+--------------+-------+------+-------------+
+|        1 | 2025-11-01 17:11:00 | Pencil       |  5.00 |   10 |       50.00 |
+|        2 | 2025-11-01 17:15:27 | Pen          | 20.00 |    5 |      100.00 |
+|        3 | 2025-11-01 17:16:45 | Eraser       |  3.00 |   55 |      165.00 |
++----------+---------------------+--------------+-------+------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> insert into ash_data(Product_Name, Rate) values ('Books', 10);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from ash_data;
++----------+---------------------+--------------+-------+------+-------------+
+| Order_ID | Order_Date          | Product_Name | Rate  | Qty  | Total_Price |
++----------+---------------------+--------------+-------+------+-------------+
+|        1 | 2025-11-01 17:11:00 | Pencil       |  5.00 |   10 |       50.00 |
+|        2 | 2025-11-01 17:15:27 | Pen          | 20.00 |    5 |      100.00 |
+|        3 | 2025-11-01 17:16:45 | Eraser       |  3.00 |   55 |      165.00 |
+|        4 | 2025-11-01 17:17:50 | Books        | 10.00 | NULL |        NULL |
++----------+---------------------+--------------+-------+------+-------------+
+4 rows in set (0.00 sec)
+
+mysql> update ash_data set Qty = 45;
+Query OK, 4 rows affected (0.06 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> select * from ash_data;
++----------+---------------------+--------------+-------+------+-------------+
+| Order_ID | Order_Date          | Product_Name | Rate  | Qty  | Total_Price |
++----------+---------------------+--------------+-------+------+-------------+
+|        1 | 2025-11-01 17:11:00 | Pencil       |  5.00 |   45 |      225.00 |
+|        2 | 2025-11-01 17:15:27 | Pen          | 20.00 |   45 |      900.00 |
+|        3 | 2025-11-01 17:16:45 | Eraser       |  3.00 |   45 |      135.00 |
+|        4 | 2025-11-01 17:17:50 | Books        | 10.00 |   45 |      450.00 |
++----------+---------------------+--------------+-------+------+-------------+
+4 rows in set (0.00 sec)
+
+mysql> update ash_data set Qty = 10 where Order_ID = 1;
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update ash_data set Qty = 5 where Order_ID = 2;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update ash_data set Qty = 55 where Order_ID = 3;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from ash_data;
++----------+---------------------+--------------+-------+------+-------------+
+| Order_ID | Order_Date          | Product_Name | Rate  | Qty  | Total_Price |
++----------+---------------------+--------------+-------+------+-------------+
+|        1 | 2025-11-01 17:11:00 | Pencil       |  5.00 |   10 |       50.00 |
+|        2 | 2025-11-01 17:15:27 | Pen          | 20.00 |    5 |      100.00 |
+|        3 | 2025-11-01 17:16:45 | Eraser       |  3.00 |   55 |      165.00 |
+|        4 | 2025-11-01 17:17:50 | Books        | 10.00 |   45 |      450.00 |
++----------+---------------------+--------------+-------+------+-------------+
+4 rows in set (0.00 sec)
+
+mysql> select 'rate';
++------+
+| rate |
++------+
+| rate |
++------+
+1 row in set (0.00 sec)
+
+mysql> select c1, c2
+    -> ^C
+mysql> select c1, c2;
+ERROR 1054 (42S22): Unknown column 'c1' in 'field list'
+mysql> create table ash_num(c1 int, c2 int, c1*c2);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*c2)' at line 1
+mysql> create table ash_num(c1 int, c2 int, c1*c2 int);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*c2 int)' at line 1
+mysql> create table ash_num(c1 int, c2 int, (c1*c2));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(c1*c2))' at line 1
+mysql> create table ash_num(c1 int, c2 int);
+Query OK, 0 rows affected (0.28 sec)
+
+mysql> select * from ash_num;
+Empty set (0.00 sec)
+
+mysql> insert into ash_num values (5, 10), (8,4), (7,9);
+Query OK, 3 rows affected (0.07 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from ash_num;
++------+------+
+| c1   | c2   |
++------+------+
+|    5 |   10 |
+|    8 |    4 |
+|    7 |    9 |
++------+------+
+3 rows in set (0.00 sec)
+
+mysql> select c1, c2, c1*c3 from ash_num;
+ERROR 1054 (42S22): Unknown column 'c3' in 'field list'
+mysql> select c1, c2, c1*c2 from ash_num;
++------+------+-------+
+| c1   | c2   | c1*c2 |
++------+------+-------+
+|    5 |   10 |    50 |
+|    8 |    4 |    32 |
+|    7 |    9 |    63 |
++------+------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select c1, c2, c1*c2 c3 from ash_num;
++------+------+------+
+| c1   | c2   | c3   |
++------+------+------+
+|    5 |   10 |   50 |
+|    8 |    4 |   32 |
+|    7 |    9 |   63 |
++------+------+------+
+3 rows in set (0.00 sec)
+
+mysql> show tables;
++---------------------+
+| Tables_in_dac14     |
++---------------------+
+| a                   |
+| activity            |
+| agent               |
+| airline_seats       |
+| andor               |
+| ash                 |
+| ash_data            |
+| ash_num             |
+| atm                 |
+| b                   |
+| bankloan            |
+| batch_schedule      |
+| betweensalary       |
+| bitwise             |
+| blanktablea         |
+| blanktableb         |
+| blog                |
+| bonus               |
+| books               |
+| brands              |
+| bus_stops           |
+| cafe                |
+| candidate           |
+| cardpayments        |
+| cashpayments        |
+| categories          |
+| category            |
+| city                |
+| classandsubjects    |
+| client              |
+| cnumbers            |
+| coalesce            |
+| comments            |
+| company             |
+| countnulls          |
+| countnumbers        |
+| cricketwinnerteam   |
+| customer            |
+| customers           |
+| demodept1           |
+| demodept2           |
+| dept                |
+| dept1               |
+| dhl                 |
+| docs                |
+| doctor              |
+| doctorvisits        |
+| dummy               |
+| duplicate           |
+| emp                 |
+| emp1                |
+| emp2                |
+| emp_attendance      |
+| emp_cards           |
+| emp_phone           |
+| empj                |
+| envelope            |
+| facebook            |
+| fedex               |
+| food                |
+| food_category_tags  |
+| food_items          |
+| fromstoreorders     |
+| fruits              |
+| fullname            |
+| hall_ticket         |
+| hobby               |
+| ipl                 |
+| item                |
+| job_list            |
+| key_parts           |
+| labtestlist         |
+| leading_zeroes      |
+| leadtable           |
+| licence             |
+| linkedin            |
+| location            |
+| managers            |
+| mass_table          |
+| medicinelist        |
+| menucard            |
+| missingnumbers      |
+| nearest             |
+| new                 |
+| newbooks            |
+| null1               |
+| null2               |
+| nullif              |
+| numberstring        |
+| onlineorders        |
+| ord                 |
+| order1              |
+| order_items         |
+| orderdetails        |
+| orders              |
+| overlapping_dates   |
+| overtime            |
+| patient             |
+| phonecall           |
+| pivot_table         |
+| plumber             |
+| plumber_service_map |
+| points              |
+| population          |
+| price               |
+| product             |
+| product_sales       |
+| products            |
+| pune_metro_stations |
+| quarterly_revenue   |
+| r                   |
+| r1                  |
+| r2                  |
+| races               |
+| regexpr             |
+| repeatingnumbers    |
+| replacedept         |
+| reservations        |
+| revenue             |
+| rockets             |
+| room_assigned       |
+| room_staff          |
+| rooms               |
+| runners             |
+| runningserver       |
+| sales               |
+| sales1              |
+| sales_channel       |
+| salespeople         |
+| salesperson         |
+| salgrade            |
+| server              |
+| service             |
+| seta                |
+| setb                |
+| shop                |
+| softdrink           |
+| sort                |
+| sourcecity          |
+| sourcenames         |
+| stadium             |
+| stages              |
+| states              |
+| station             |
+| status              |
+| stocks              |
+| stringnumber        |
+| student             |
+| swapcity            |
+| tablea              |
+| tableaa             |
+| tableb              |
+| tablebb             |
+| targetcity          |
+| targetnames         |
+| tasks               |
+| teams               |
+| temp1               |
+| trainers            |
+| trains              |
+| traintimetable      |
+| transactions        |
+| unpivot_table       |
+| ups                 |
+| vote_response       |
+| votes               |
+| warehouse           |
+| x                   |
+| year_of_service     |
+| yearly_revenue      |
+| years               |
+| z                   |
++---------------------+
+172 rows in set (0.01 sec)
+
+mysql> select * from ash_data;
++----------+---------------------+--------------+-------+------+-------------+
+| Order_ID | Order_Date          | Product_Name | Rate  | Qty  | Total_Price |
++----------+---------------------+--------------+-------+------+-------------+
+|        1 | 2025-11-01 17:11:00 | Pencil       |  5.00 |   10 |       50.00 |
+|        2 | 2025-11-01 17:15:27 | Pen          | 20.00 |    5 |      100.00 |
+|        3 | 2025-11-01 17:16:45 | Eraser       |  3.00 |   55 |      165.00 |
+|        4 | 2025-11-01 17:17:50 | Books        | 10.00 |   45 |      450.00 |
++----------+---------------------+--------------+-------+------+-------------+
+4 rows in set (0.00 sec)
+
+mysql> select *, Rate*Qty as Final_Bill  from ash_data;
++----------+---------------------+--------------+-------+------+-------------+------------+
+| Order_ID | Order_Date          | Product_Name | Rate  | Qty  | Total_Price | Final_Bill |
++----------+---------------------+--------------+-------+------+-------------+------------+
+|        1 | 2025-11-01 17:11:00 | Pencil       |  5.00 |   10 |       50.00 |      50.00 |
+|        2 | 2025-11-01 17:15:27 | Pen          | 20.00 |    5 |      100.00 |     100.00 |
+|        3 | 2025-11-01 17:16:45 | Eraser       |  3.00 |   55 |      165.00 |     165.00 |
+|        4 | 2025-11-01 17:17:50 | Books        | 10.00 |   45 |      450.00 |     450.00 |
++----------+---------------------+--------------+-------+------+-------------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from ash_data;
++----------+---------------------+--------------+-------+------+-------------+
+| Order_ID | Order_Date          | Product_Name | Rate  | Qty  | Total_Price |
++----------+---------------------+--------------+-------+------+-------------+
+|        1 | 2025-11-01 17:11:00 | Pencil       |  5.00 |   10 |       50.00 |
+|        2 | 2025-11-01 17:15:27 | Pen          | 20.00 |    5 |      100.00 |
+|        3 | 2025-11-01 17:16:45 | Eraser       |  3.00 |   55 |      165.00 |
+|        4 | 2025-11-01 17:17:50 | Books        | 10.00 |   45 |      450.00 |
++----------+---------------------+--------------+-------+------+-------------+
+4 rows in set (0.00 sec)
+
+mysql> select nullif(2,1);
++-------------+
+| nullif(2,1) |
++-------------+
+|           2 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select nullif(2,2);
++-------------+
+| nullif(2,2) |
++-------------+
+|        NULL |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select nullif(2,1);
++-------------+
+| nullif(2,1) |
++-------------+
+|           2 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select ifnull(2,2);
++-------------+
+| ifnull(2,2) |
++-------------+
+|           2 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select ifnull(1,2);
++-------------+
+| ifnull(1,2) |
++-------------+
+|           1 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select ifnull(null,2);
++----------------+
+| ifnull(null,2) |
++----------------+
+|              2 |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select ifnull(5,7);
++-------------+
+| ifnull(5,7) |
++-------------+
+|           5 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select ifnull(null,7);
++----------------+
+| ifnull(null,7) |
++----------------+
+|              7 |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select * from student;
++-----------+----------+------+------------------------+------------------------+
+| studentID | name     | rnk  | emailID                | userName               |
++-----------+----------+------+------------------------+------------------------+
+|      1001 | Saleel   |    1 | saleel.songs@gmail.com | saleel.songs@gmail.com |
+|      1002 | Sharmin  |    1 | sharmin@gmail.com      | sharmin@gmail.com      |
+|      1003 | Vrushali |    2 | vrusha@hotmail.com     | vrushali@hotmail.com   |
+|      1005 | Ruhan    |    3 | ru@live.com            | ruhan.live.com         |
+|      1006 | Neel     |    2 | nil@gmail.com          | neel@gmail.com         |
+|      1007 | Deep     |    1 | deep@gmail.com         | deep@gmail.com         |
+|      1008 | Nitish   |    4 | nity@live.com          | nitish@live.com        |
+|      1009 | Gau      |    5 | gaurav@gmail.com       | gau@gmail.com          |
+|      1010 | Mai      |    4 | mai@gmail.com          | mai@gmail.com          |
+|      1011 | Bipin    |    5 | bipin@gmail.com        | bipinpatil@gmail.com   |
+|      1012 | Natasha  |    3 | NULL                   | NULL                   |
+|      1013 | Bandish  |    2 | NULL                   | NULL                   |
++-----------+----------+------+------------------------+------------------------+
+12 rows in set (0.07 sec)
+
+mysql> select emailId,userName,nullif(emailID,userName) from student;
++------------------------+------------------------+--------------------------+
+| emailId                | userName               | nullif(emailID,userName) |
++------------------------+------------------------+--------------------------+
+| saleel.songs@gmail.com | saleel.songs@gmail.com | NULL                     |
+| sharmin@gmail.com      | sharmin@gmail.com      | NULL                     |
+| vrusha@hotmail.com     | vrushali@hotmail.com   | vrusha@hotmail.com       |
+| ru@live.com            | ruhan.live.com         | ru@live.com              |
+| nil@gmail.com          | neel@gmail.com         | nil@gmail.com            |
+| deep@gmail.com         | deep@gmail.com         | NULL                     |
+| nity@live.com          | nitish@live.com        | nity@live.com            |
+| gaurav@gmail.com       | gau@gmail.com          | gaurav@gmail.com         |
+| mai@gmail.com          | mai@gmail.com          | NULL                     |
+| bipin@gmail.com        | bipinpatil@gmail.com   | bipin@gmail.com          |
+| NULL                   | NULL                   | NULL                     |
+| NULL                   | NULL                   | NULL                     |
++------------------------+------------------------+--------------------------+
+12 rows in set (0.00 sec)
+
+mysql> select * from ord;
++-------+------------+----------+--------+------------+----------------+------------+------------+----------+
+| ORDID | ORDERDATE  | COMMPLAN | CUSTID | SHIPDATE   | actualShipDate | STATUSDATE | STATUS     | TOTAL    |
++-------+------------+----------+--------+------------+----------------+------------+------------+----------+
+|   601 | 1986-05-01 | A        |    106 | 1986-05-30 | 1986-06-02     | NULL       | In Process |     2.40 |
+|   602 | 1986-06-05 | B        |    102 | 1986-06-20 | NULL           | 1986-07-09 | On Hold    |    56.00 |
+|   603 | 1986-06-05 | NULL     |    102 | 1986-06-05 | 1986-06-07     | 1986-06-10 | Cancelled  |   224.00 |
+|   604 | 1986-06-15 | A        |    106 | 1986-05-30 | NULL           | 1986-07-04 | Resolved   |   698.00 |
+|   606 | 1986-07-14 | A        |    100 | 1986-07-30 | 1986-07-30     | NULL       | Shipped    |     3.40 |
+|   607 | 1986-07-18 | C        |    104 | 1986-07-18 | 1986-07-20     | NULL       | In Process |     5.60 |
+|   608 | 1986-07-25 | C        |    104 | 1986-07-25 | 1986-07-25     | NULL       | Shipped    |    35.20 |
+|   609 | 1986-08-01 | B        |    100 | 1986-08-15 | NULL           | 1986-08-19 | On Hold    |    97.50 |
+|   610 | 1987-01-07 | A        |    101 | 1987-01-08 | 1987-01-08     | NULL       | In Process |   101.40 |
+|   611 | 1987-01-11 | B        |    102 | 1987-01-11 | NULL           | NULL       | Shipped    |    45.00 |
+|   612 | 1987-01-15 | C        |    104 | 1987-01-20 | 1987-01-23     | 1987-01-21 | Cancelled  |  5860.00 |
+|   613 | 1987-02-01 | NULL     |    108 | 1987-02-01 | 1987-02-01     | NULL       | Shipped    |  6400.00 |
+|   614 | 1987-02-01 | NULL     |    102 | 1987-02-05 | 1987-02-06     | NULL       | In Process | 23940.00 |
+|   615 | 1987-02-01 | NULL     |    107 | 1987-02-06 | 1987-02-12     | NULL       | In Process |   710.00 |
+|   616 | 1987-02-03 | NULL     |    103 | 1987-02-10 | 1987-02-10     | 1987-02-10 | Resolved   |   764.00 |
+|   617 | 1987-02-05 | NULL     |    105 | 1987-03-03 | 1987-03-03     | NULL       | Shipped    | 46370.00 |
+|   618 | 1987-02-15 | A        |    102 | 1987-03-06 | NULL           | 1987-03-16 | On Hold    |  3510.50 |
+|   619 | 1987-02-22 | NULL     |    104 | 1987-02-04 | 1987-02-04     | NULL       | In Process |  1260.00 |
+|   620 | 1987-03-12 | NULL     |    100 | 1987-03-12 | NULL           | 1987-03-12 | Cancelled  |  4450.00 |
+|   621 | 1987-03-15 | A        |    100 | 1987-03-01 | 1987-01-06     | NULL       | Shipped    |   730.00 |
+|   622 | 1986-12-31 | a        |    105 | 1987-01-01 | NULL           | 1987-01-06 | Delivered  |  1125.00 |
+|   624 | 1987-01-06 | c        |    105 | 1987-01-06 | 1987-01-06     | 1987-01-09 | Delivered  |   189.00 |
+|   625 | 1987-01-09 | NULL     |    105 | 1987-01-10 | 1987-01-12     | 1987-01-16 | Delivered  |  1255.00 |
+|   626 | 1987-01-31 | NULL     |    107 | 1987-02-01 | NULL           | 1987-02-06 | shipped    |  1675.00 |
+|   627 | 1987-02-13 | NULL     |    100 | 1987-02-14 | 1987-02-17     | 1987-02-22 | Delivered  |   250.00 |
+|   628 | 1987-03-13 | A        |    100 | 1987-03-14 | 1987-03-19     | 1987-03-15 | Shipped    |   473.93 |
+|   629 | 1987-03-14 | A        |    100 | 1987-03-16 | 1987-03-16     | 1987-03-17 | Shipped    |   289.99 |
+|   630 | 1987-02-21 | D        |    104 | 1987-02-22 | 1987-02-23     | 1987-02-23 | Delivered  |   362.12 |
+|   631 | 1987-02-23 | F        |    104 | 1987-02-23 | NULL           | 1987-02-24 | Delivered  |   232.87 |
+|   632 | 1987-03-13 | A        |   NULL | 1987-03-14 | 1987-03-14     | 1987-03-15 | Shipped    |   473.93 |
+|   633 | 1987-03-14 | A        |   NULL | 1987-03-16 | 1987-03-20     | 1987-03-17 | Shipped    |   289.99 |
+|   634 | 1987-02-21 | D        |   NULL | 1987-02-22 | 1987-02-24     | 1987-02-23 | Delivered  |   362.12 |
+|   635 | 1987-02-23 | F        |   NULL | 1987-02-23 | 1987-02-23     | 1987-02-24 | Delivered  |   232.87 |
++-------+------------+----------+--------+------------+----------------+------------+------------+----------+
+33 rows in set (0.06 sec)
+
+mysql> select SHIPDATE,actualShipDate,nullif(SHIPDATE,actualShipDate) from ord;
++------------+----------------+---------------------------------+
+| SHIPDATE   | actualShipDate | nullif(SHIPDATE,actualShipDate) |
++------------+----------------+---------------------------------+
+| 1986-05-30 | 1986-06-02     | 1986-05-30                      |
+| 1986-06-20 | NULL           | 1986-06-20                      |
+| 1986-06-05 | 1986-06-07     | 1986-06-05                      |
+| 1986-05-30 | NULL           | 1986-05-30                      |
+| 1986-07-30 | 1986-07-30     | NULL                            |
+| 1986-07-18 | 1986-07-20     | 1986-07-18                      |
+| 1986-07-25 | 1986-07-25     | NULL                            |
+| 1986-08-15 | NULL           | 1986-08-15                      |
+| 1987-01-08 | 1987-01-08     | NULL                            |
+| 1987-01-11 | NULL           | 1987-01-11                      |
+| 1987-01-20 | 1987-01-23     | 1987-01-20                      |
+| 1987-02-01 | 1987-02-01     | NULL                            |
+| 1987-02-05 | 1987-02-06     | 1987-02-05                      |
+| 1987-02-06 | 1987-02-12     | 1987-02-06                      |
+| 1987-02-10 | 1987-02-10     | NULL                            |
+| 1987-03-03 | 1987-03-03     | NULL                            |
+| 1987-03-06 | NULL           | 1987-03-06                      |
+| 1987-02-04 | 1987-02-04     | NULL                            |
+| 1987-03-12 | NULL           | 1987-03-12                      |
+| 1987-03-01 | 1987-01-06     | 1987-03-01                      |
+| 1987-01-01 | NULL           | 1987-01-01                      |
+| 1987-01-06 | 1987-01-06     | NULL                            |
+| 1987-01-10 | 1987-01-12     | 1987-01-10                      |
+| 1987-02-01 | NULL           | 1987-02-01                      |
+| 1987-02-14 | 1987-02-17     | 1987-02-14                      |
+| 1987-03-14 | 1987-03-19     | 1987-03-14                      |
+| 1987-03-16 | 1987-03-16     | NULL                            |
+| 1987-02-22 | 1987-02-23     | 1987-02-22                      |
+| 1987-02-23 | NULL           | 1987-02-23                      |
+| 1987-03-14 | 1987-03-14     | NULL                            |
+| 1987-03-16 | 1987-03-20     | 1987-03-16                      |
+| 1987-02-22 | 1987-02-24     | 1987-02-22                      |
+| 1987-02-23 | 1987-02-23     | NULL                            |
++------------+----------------+---------------------------------+
+33 rows in set (0.00 sec)
+
+mysql> select SHIPDATE,actualShipDate,ifnull(nullif(Shipdate,actualshipdate),'Product has been shiped') as Shipped_Status from ord;
++------------+----------------+-------------------------+
+| SHIPDATE   | actualShipDate | Shipped_Status          |
++------------+----------------+-------------------------+
+| 1986-05-30 | 1986-06-02     | 1986-05-30              |
+| 1986-06-20 | NULL           | 1986-06-20              |
+| 1986-06-05 | 1986-06-07     | 1986-06-05              |
+| 1986-05-30 | NULL           | 1986-05-30              |
+| 1986-07-30 | 1986-07-30     | Product has been shiped |
+| 1986-07-18 | 1986-07-20     | 1986-07-18              |
+| 1986-07-25 | 1986-07-25     | Product has been shiped |
+| 1986-08-15 | NULL           | 1986-08-15              |
+| 1987-01-08 | 1987-01-08     | Product has been shiped |
+| 1987-01-11 | NULL           | 1987-01-11              |
+| 1987-01-20 | 1987-01-23     | 1987-01-20              |
+| 1987-02-01 | 1987-02-01     | Product has been shiped |
+| 1987-02-05 | 1987-02-06     | 1987-02-05              |
+| 1987-02-06 | 1987-02-12     | 1987-02-06              |
+| 1987-02-10 | 1987-02-10     | Product has been shiped |
+| 1987-03-03 | 1987-03-03     | Product has been shiped |
+| 1987-03-06 | NULL           | 1987-03-06              |
+| 1987-02-04 | 1987-02-04     | Product has been shiped |
+| 1987-03-12 | NULL           | 1987-03-12              |
+| 1987-03-01 | 1987-01-06     | 1987-03-01              |
+| 1987-01-01 | NULL           | 1987-01-01              |
+| 1987-01-06 | 1987-01-06     | Product has been shiped |
+| 1987-01-10 | 1987-01-12     | 1987-01-10              |
+| 1987-02-01 | NULL           | 1987-02-01              |
+| 1987-02-14 | 1987-02-17     | 1987-02-14              |
+| 1987-03-14 | 1987-03-19     | 1987-03-14              |
+| 1987-03-16 | 1987-03-16     | Product has been shiped |
+| 1987-02-22 | 1987-02-23     | 1987-02-22              |
+| 1987-02-23 | NULL           | 1987-02-23              |
+| 1987-03-14 | 1987-03-14     | Product has been shiped |
+| 1987-03-16 | 1987-03-20     | 1987-03-16              |
+| 1987-02-22 | 1987-02-24     | 1987-02-22              |
+| 1987-02-23 | 1987-02-23     | Product has been shiped |
++------------+----------------+-------------------------+
+33 rows in set (0.00 sec)
+
+mysql> select shipdate,actualshipdate,if(nullif(shipdate,actualshipdate) is null,'Shiped',concat('Sorry, the product was to be shiped on',Shipdate))from ord;
++------------+----------------+----------------------------------------------------------------------------------------------------------------+
+| shipdate   | actualshipdate | if(nullif(shipdate,actualshipdate) is null,'Shiped',concat('Sorry, the product was to be shiped on',Shipdate)) |
++------------+----------------+----------------------------------------------------------------------------------------------------------------+
+| 1986-05-30 | 1986-06-02     | Sorry, the product was to be shiped on1986-05-30                                                               |
+| 1986-06-20 | NULL           | Sorry, the product was to be shiped on1986-06-20                                                               |
+| 1986-06-05 | 1986-06-07     | Sorry, the product was to be shiped on1986-06-05                                                               |
+| 1986-05-30 | NULL           | Sorry, the product was to be shiped on1986-05-30                                                               |
+| 1986-07-30 | 1986-07-30     | Shiped                                                                                                         |
+| 1986-07-18 | 1986-07-20     | Sorry, the product was to be shiped on1986-07-18                                                               |
+| 1986-07-25 | 1986-07-25     | Shiped                                                                                                         |
+| 1986-08-15 | NULL           | Sorry, the product was to be shiped on1986-08-15                                                               |
+| 1987-01-08 | 1987-01-08     | Shiped                                                                                                         |
+| 1987-01-11 | NULL           | Sorry, the product was to be shiped on1987-01-11                                                               |
+| 1987-01-20 | 1987-01-23     | Sorry, the product was to be shiped on1987-01-20                                                               |
+| 1987-02-01 | 1987-02-01     | Shiped                                                                                                         |
+| 1987-02-05 | 1987-02-06     | Sorry, the product was to be shiped on1987-02-05                                                               |
+| 1987-02-06 | 1987-02-12     | Sorry, the product was to be shiped on1987-02-06                                                               |
+| 1987-02-10 | 1987-02-10     | Shiped                                                                                                         |
+| 1987-03-03 | 1987-03-03     | Shiped                                                                                                         |
+| 1987-03-06 | NULL           | Sorry, the product was to be shiped on1987-03-06                                                               |
+| 1987-02-04 | 1987-02-04     | Shiped                                                                                                         |
+| 1987-03-12 | NULL           | Sorry, the product was to be shiped on1987-03-12                                                               |
+| 1987-03-01 | 1987-01-06     | Sorry, the product was to be shiped on1987-03-01                                                               |
+| 1987-01-01 | NULL           | Sorry, the product was to be shiped on1987-01-01                                                               |
+| 1987-01-06 | 1987-01-06     | Shiped                                                                                                         |
+| 1987-01-10 | 1987-01-12     | Sorry, the product was to be shiped on1987-01-10                                                               |
+| 1987-02-01 | NULL           | Sorry, the product was to be shiped on1987-02-01                                                               |
+| 1987-02-14 | 1987-02-17     | Sorry, the product was to be shiped on1987-02-14                                                               |
+| 1987-03-14 | 1987-03-19     | Sorry, the product was to be shiped on1987-03-14                                                               |
+| 1987-03-16 | 1987-03-16     | Shiped                                                                                                         |
+| 1987-02-22 | 1987-02-23     | Sorry, the product was to be shiped on1987-02-22                                                               |
+| 1987-02-23 | NULL           | Sorry, the product was to be shiped on1987-02-23                                                               |
+| 1987-03-14 | 1987-03-14     | Shiped                                                                                                         |
+| 1987-03-16 | 1987-03-20     | Sorry, the product was to be shiped on1987-03-16                                                               |
+| 1987-02-22 | 1987-02-24     | Sorry, the product was to be shiped on1987-02-22                                                               |
+| 1987-02-23 | 1987-02-23     | Shiped                                                                                                         |
++------------+----------------+----------------------------------------------------------------------------------------------------------------+
+33 rows in set (0.00 sec)
+
+mysql> select if((2024%4=0 and 2024%100<>0)or 2024%100=0,'A','B');
++-----------------------------------------------------+
+| if((2024%4=0 and 2024%100<>0)or 2024%100=0,'A','B') |
++-----------------------------------------------------+
+| A                                                   |
++-----------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select curdate();
++------------+
+| curdate()  |
++------------+
+| 2025-11-01 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select swapcity.*,id%2,case when id%2=0 then id-1 else id+1 end from swapcity;
++------+----------+----------+------+------------------------------------------+
+| id   | ename    | cityName | id%2 | case when id%2=0 then id-1 else id+1 end |
++------+----------+----------+------+------------------------------------------+
+|    1 | Saleel   | Baroda   |    1 |                                        2 |
+|    2 | Sharmin  | Rajkot   |    0 |                                        1 |
+|    3 | Vrushali | Surat    |    1 |                                        4 |
+|    4 | Ruhan    | Bharuch  |    0 |                                        3 |
+|    5 | Nitish   | Jamnagar |    1 |                                        6 |
+|    6 | Deep     | Anand    |    0 |                                        5 |
+|    7 | Neel     | Bhuj     |    1 |                                        8 |
++------+----------+----------+------+------------------------------------------+
+7 rows in set (0.03 sec)
+
+mysql> select elt(1,'North','South','East','West')
+    -> ^C
+mysql> select elt(1,'North','South','East','West');
++--------------------------------------+
+| elt(1,'North','South','East','West') |
++--------------------------------------+
+| North                                |
++--------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select elt(2,'North','South','East','West');
++--------------------------------------+
+| elt(2,'North','South','East','West') |
++--------------------------------------+
+| South                                |
++--------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select now();
++---------------------+
+| now()               |
++---------------------+
+| 2025-11-01 18:15:40 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> now()+interval 5 day;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'now()+interval 5 day' at line 1
+mysql> select now()+interval 5 day;
++----------------------+
+| now()+interval 5 day |
++----------------------+
+| 2025-11-06 18:16:29  |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> select now()+interval 1 day;
++----------------------+
+| now()+interval 1 day |
++----------------------+
+| 2025-11-02 18:16:58  |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> select now()+interval 1 year;
++-----------------------+
+| now()+interval 1 year |
++-----------------------+
+| 2026-11-01 18:17:23   |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> select now(),extract(week from now());
++---------------------+--------------------------+
+| now()               | extract(week from now()) |
++---------------------+--------------------------+
+| 2025-11-01 18:19:13 |                       43 |
++---------------------+--------------------------+
+1 row in set (0.00 sec)
+
+mysql>
