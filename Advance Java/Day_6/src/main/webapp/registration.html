@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register New User</title>
+
+</head>
+<body>
+
+    <form action="register" method="post">
+        <h2>Register New User</h2>
+
+        
+            <label for="fullname" class="required">Full Name</label>
+            <br>
+            <input type="text" name="fullname" id="fullname" required>
+            <br>
+            <br>
+        
+
+        
+            <label for="uname" class="required">Username</label>
+            <br>
+            <input type="text" name="uname" id="uname" required>
+            <br>
+            <br>
+     
+
+        
+            <label for="password" class="required">Password</label>
+            <br>
+            <input type="password" name="password" id="password" required>
+            <br>
+            <br>
+       
+
+        
+            <label for="email" class="required">Email</label>
+            <br>
+            <input type="email" name="email" id="email" required>
+            <br>
+            <br>
+      
+
+        
+            <label for="dob" class="required">Date Of Birth</label>
+            <br>
+            <input type="text" name="dob" id="dob" placeholder="dd/mm/yyyy" required>
+            <br>
+            <br>
+        
+
+        
+            <label class="required">Gender</label>
+            <br>
+           
+                    <input type="radio" name="Gender" id="Male" value="Male" required>
+                    <label for="Male">Male</label>
+                    <br>
+             
+             
+                    <input type="radio" name="Gender" id="Female" value="Female">
+                    <label for="Female">Female</label>
+                    <br>
+             
+         
+                    <input type="radio" name="Gender" id="Other" value="Other">
+                    <label for="Other">Other</label>
+                    <br>
+                    <br>
+          
+   
+            <label for="role">Role</label>
+            <br>
+            <input type="text" name="role" id="role" placeholder="e.g., Admin, User, Manager">
+            <br>
+            <br>
+    
+
+        <button type="submit">Register Now</button>
+    </form>
+    </br>
+    <a href="login.html">Already have account? Login here</a>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+  
+        <h2>Add New Product</h2>
+        
+        <form action="addProduct" method="post">
+            
+                <label for="pname">Product Name</label>
+                <br>
+                <input type="text" name="pname" id="pname" placeholder="Enter product name" required>
+                <br>
+                <br>
+          
+
+           
+                <label for="pqty">Product Quantity</label>
+                <br>
+                <input type="text" name="pqty" id="pqty" placeholder="e.g., 50" required>
+                <br>
+                <br>
+          
+
+            
+                <label for="price">Product Price (&#8377;)</label>
+                <br>
+                <input type="text" name="price" id="price" placeholder="e.g., 299.99" required>
+                <br>
+                <br>
+        
+
+            
+                <label for="expdate">Product Expiry Date</label>
+                <br>
+                <input type="text" name="expdate" id="expdate" placeholder="dd/MM/yyyy or YYYY-MM-DD" required>
+                <br>
+                <br>
+         
+
+           
+                <label for="cid">Customer ID</label>
+                <br>
+                <input type="text" name="cid" id="cid" placeholder="Enter customer ID" required>
+                <br>
+                <br>
+          
+
+            <button type="submit" name="add" id="add" class="submit-btn">
+                Add Product
+            </button>
+        </form>
+</body>
+</html>
