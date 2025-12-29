@@ -1,59 +1,58 @@
 ﻿using Microsoft.Data.SqlClient;
+using System.Data;
 
-namespace Assignment
+namespace Disconnected
 {
     internal class Program
     {
-        static string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=IETDB2;Integrated Security=True";
-
-
         static void Main(string[] args)
         {
-           
 
-            Console.Write("Enter Username: ");
-            string username = Console.ReadLine();
+            #region SelectQuery
+            string _conString = "Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=IETDB;Integrated Security=True;Encrypt=True";
+            //SqlConnection con = new SqlConnection(_conString);
+            //SqlDataAdapter ad = new SqlDataAdapter("select * from emp", con);
+            //ad.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+            //DataSet ds = new DataSet();
+            //ad.Fill(ds, "emp");
+            //foreach (DataRow row in ds.Tables["emp"].Rows)
+            //{
+            //    int id = Convert.ToInt32(row["id"]);
+            //    string nm = row["name"].ToString();
+            //    string add = row["address"].ToString();
+            //    Console.WriteLine($"Id: {id}, Name: {nm}, Address: {add}");
 
-            Console.Write("Enter Password: ");
-            string password = Console.ReadLine();
 
-            bool isValid = CheckCredentials(username, password);
+            //}
+            #endregion
 
-            if (isValid)
-            {
-                Console.WriteLine("\nResult: Valid - Login Successful!");
-            }
-            else
-            {
-                Console.WriteLine("\nResult: Invalid - Wrong Username or Password");
-            }
+            #region INSERT Query
+            SqlConnection con = new SqlConnection(_conString);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM emp", con);
 
-           
+            da.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+
+            SqlCommandBuilder builder = new SqlCommandBuilder(da);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds, "emp");
+          
+
+            Console.WriteLine("Enter Name:");
+            string nm = Console.ReadLine();
+            Console.WriteLine("Enter Address:");
+            string add = Console.ReadLine();
+
+            DataRow newRow = ds.Tables["emp"].NewRow();
+            newRow["Name"] = nm;
+            newRow["Address"] = add;
+
+            ds.Tables["emp"].Rows.Add(newRow);
+
+            da.Update(ds, "emp");
+            Console.WriteLine("Record inserted!");
+            #endregion
         }
-
-        static bool CheckCredentials(string username, string password)
-        {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-
-                string query = "SELECT COUNT(*) FROM emp WHERE username = @username AND password = @password";
-
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@username", username);
-                    cmd.Parameters.AddWithValue("@password", password);
-
-                    int count = (int)cmd.ExecuteScalar();
-                    return count > 0;
-                }
-
-            }
-        }
-
-
-
-
     }
 }
 
